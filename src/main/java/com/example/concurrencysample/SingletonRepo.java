@@ -20,6 +20,7 @@ import com.amazonaws.services.dynamodbv2.model.KeySchemaElement;
 import com.amazonaws.services.dynamodbv2.model.KeyType;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
 import com.amazonaws.services.dynamodbv2.model.ScalarAttributeType;
+import com.amazonaws.regions.Regions;
 
 public class SingletonRepo {
     private static String ACCESS_KEY = "";
@@ -41,7 +42,7 @@ public class SingletonRepo {
 
             dynamodb = AmazonDynamoDBClientBuilder
                     .standard()
-            .withRegion("us-west-2")
+            .withRegion(Regions.US_WEST_2)
             .withCredentials(new AWSStaticCredentialsProvider(ac) )
             .build();
             System.out.println("singleton repo instance created");
